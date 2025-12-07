@@ -1,4 +1,5 @@
-const BASE = "http://127.0.0.1:5000";
+const BASE = "https://sub-shi-qubipay-backend.hf.space";
+
 
 function showTab(tab, el) {
   document.getElementById("merchant").style.display = tab === "merchant" ? "block" : "none";
