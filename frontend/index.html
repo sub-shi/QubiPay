@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>QubiPay – Pay-Per-Use on Qubic</title>
+  <link rel="stylesheet" href="css/style.css" />
+</head>
+
+<body>
+
+<header>🚀 QubiPay – Micro Payments Engine on Qubic</header>
+
+<div class="tabs">
+  <div class="tab active" onclick="showTab('merchant', this)">🧑‍💼 Merchant</div>
+  <div class="tab" onclick="showTab('user', this)">👤 User</div>
+</div>
+
+<div class="container">
+
+  <!-- MERCHANT DASHBOARD -->
+  <div id="merchant">
+
+    <!-- ✅ OPTIONAL: LIVE ANALYTICS PANEL -->
+    <div class="card">
+      <h3>📊 Live Merchant Analytics</h3>
+      <div style="display:flex; gap:20px; flex-wrap:wrap;">
+        <div class="card">💰 Revenue: <span id="totalRevenue">0</span> QUBIC</div>
+        <div class="card">📄 Total Sessions: <span id="totalSessions">0</span></div>
+        <div class="card">✅ Paid Sessions: <span id="paidSessions">0</span></div>
+      </div>
+    </div>
+
+    <div class="card">
+      <h3>🔑 Merchant API Key</h3>
+      <input id="apiKey" placeholder="Paste your API Key">
+    </div>
+
+    <div class="card">
+      <h3>➕ Create Billable Resource</h3>
+      <input id="rName" placeholder="Resource name">
+      <input id="rDesc" placeholder="Description">
+      <input id="rPrice" placeholder="Price in QUBIC">
+      <button id="createResourceBtn" onclick="createResource()">Create Resource</button>
+      <pre id="resourceOut"></pre>
+    </div>
+
+    <div class="card">
+      <h3>📦 Your Resources</h3>
+      <button onclick="loadResources()">Load Resources</button>
+      <pre id="resourceList"></pre>
+    </div>
+
+  </div>
+
+  <!-- USER PAYMENT FLOW -->
+  <div id="user" style="display:none;">
+
+    <div class="card">
+      <h3>💳 Create Payment Session</h3>
+      <input id="userWallet" placeholder="User Wallet Address">
+      <input id="payResourceId" placeholder="Resource ID">
+
+      <!-- ✅ Button passed safely to JS -->
+      <button onclick="createSession(this)">Create Session</button>
+
+      <pre id="sessionOut"></pre>
+    </div>
+
+    <div class="card">
+      <h3>✅ Confirm Payment (Demo)</h3>
+      <input id="sessionId" placeholder="Session ID">
+
+      <!-- ✅ Button passed safely to JS -->
+      <button onclick="markPaid(this)">Mark as Paid</button>
+      <button onclick="checkStatus(this)">Check Status</button>
+
+      <div id="paymentBadge"></div>
+      <pre id="statusOut"></pre>
+    </div>
+
+  </div>
+
+</div>
+
+<script src="js/app.js"></script>
+</body>
+</html>
